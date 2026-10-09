@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lotería</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body data-count="{{ count }}" data-max="{{ max_num }}">
+  <main>
+    <h1>🎟️ Lotería</h1>
+    <p class="sub">Elige <b>{{ count }}</b> números del 1 al {{ max_num }}.</p>
+
+    <section class="card">
+      <div id="grid" class="grid"></div>
+      <p id="selected" class="selected">Elegidos: –</p>
+      <div class="actions">
+        <button id="btn-quick" class="secondary">Al azar</button>
+        <button id="btn-clear" class="secondary">Limpiar</button>
+        <button id="btn-play">Jugar</button>
+      </div>
+      <p id="error" class="error"></p>
+    </section>
+
+    <section id="result" class="card hidden">
+      <h2 id="result-title"></h2>
+      <p>Combinación ganadora: <span id="winning"></span></p>
+      <p>Tu boleto: <span id="ticket"></span></p>
+    </section>
+
+    <section id="trace-card" class="card hidden">
+      <h2>Recorrido de la petición</h2>
+      <p class="sub">Capas que participaron en el último request:</p>
+      <ol id="trace"></ol>
+    </section>
+  </main>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
